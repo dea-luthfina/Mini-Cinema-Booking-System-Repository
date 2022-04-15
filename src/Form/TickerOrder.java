@@ -3,8 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+// Panel import
+
 // OOP import
 import Core.Human;
+import Core.Payment;
+import Core.Shoopepay;
+import Core.Dana;
+import Core.Cash;
+import Core.CreditCard;
+import Core.Gopay;
 
 public class TickerOrder extends javax.swing.JFrame {
 
@@ -12,7 +20,7 @@ public class TickerOrder extends javax.swing.JFrame {
  Human human = new Human();
 
  // inisiasi payment
-
+ Payment payment = new Payment();
  
     private Object Interger;
 
@@ -32,6 +40,7 @@ public class TickerOrder extends javax.swing.JFrame {
 
         // Menghapus label
         label_total.setText("");
+        label_payment.setText("");
         
         // Menghapus combo button
         cb_day.setSelectedIndex(0);
@@ -41,20 +50,50 @@ public class TickerOrder extends javax.swing.JFrame {
         btngroup_payment.clearSelection();
     }
   
-    // fungsi update data
-    private void update() {
-        // update data pembelian
-        String name = this.human.getName();
+    // fungsi save data
+    private void updateForm() {
+        // save text field
+        String name = tf_name.getText();
         this.human.setName(name);
 
-        String phone = this.human.getPhone();
+        String phone = tf_name.getText();
         this.human.setPhone(phone);
 
-        String amount = this.human.getAmount();
-        this.human.setPhone(amount);
+        String amount = tf_amount.getText();
+        this.human.setAmount(amount);
 
+        // save combobox  
         String day = cb_day.getSelectedItem().toString();
+        this.human.setDay(day);
+        
         String time = cb_time.getSelectedItem().toString();
+        this.human.setTime(time);
+        
+        // save label
+        String price = label_price.getText();
+        this.human.setTotal(price);
+
+        String total = label_total.getText();
+        this.human.setTotal(total);
+
+        // save radio button 
+        String payment = null;
+        if(rb_card.isSelected()){
+         payment = rb_card.getText();
+        }
+        else if(rb_cash.isSelected()){
+         payment = rb_cash.getText();
+        }
+        else if(rb_dana.isSelected()){
+         payment = rb_dana.getText();
+        }
+        else if(rb_gopay.isSelected()){
+         payment = rb_gopay.getText();
+        }
+        else {
+         payment = rb_shopeepay.getText();
+        } 
+        this.human.setPayment(payment);
     }
 
     // fungsi validasi
@@ -102,9 +141,9 @@ public class TickerOrder extends javax.swing.JFrame {
         }
 
         // validasi radio button
-        if(!(rb_gopay.isSelected()) | (rb_dana.isSelected()) | 
-            (rb_shopeepay.isSelected()) | (rb_cash.isSelected()) |
-            (rb_card.isSelected())) {
+        if(!((rb_card.isSelected()) | (rb_gopay.isSelected()) | 
+             (rb_dana.isSelected()) | (rb_shopeepay.isSelected()) 
+           | (rb_cash.isSelected()))) {
              flag.add("Please select the payment method!");
         }
 
@@ -116,7 +155,6 @@ public class TickerOrder extends javax.swing.JFrame {
 
         return alert;
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,6 +195,7 @@ public class TickerOrder extends javax.swing.JFrame {
         label_result = new javax.swing.JLabel();
         label_final = new javax.swing.JLabel();
         rb_card = new javax.swing.JRadioButton();
+        label_payment = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -170,6 +209,11 @@ public class TickerOrder extends javax.swing.JFrame {
         jLabel5.setBounds(90, 240, 34, 24);
 
         tf_amount.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        tf_amount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_amountMouseClicked(evt);
+            }
+        });
         tf_amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_amountActionPerformed(evt);
@@ -194,7 +238,7 @@ public class TickerOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(rb_shopeepay);
-        rb_shopeepay.setBounds(537, 377, 150, 19);
+        rb_shopeepay.setBounds(537, 377, 120, 19);
 
         jLabel9.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,7 +298,7 @@ public class TickerOrder extends javax.swing.JFrame {
         label_total.setForeground(new java.awt.Color(255, 255, 255));
         label_total.setText("   ");
         getContentPane().add(label_total);
-        label_total.setBounds(269, 373, 110, 24);
+        label_total.setBounds(289, 373, 90, 24);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -318,6 +362,11 @@ public class TickerOrder extends javax.swing.JFrame {
 
         btn_next.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         btn_next.setText("Next");
+        btn_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nextActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_next);
         btn_next.setBounds(602, 594, 106, 41);
 
@@ -347,7 +396,7 @@ public class TickerOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_save);
-        btn_save.setBounds(630, 460, 83, 36);
+        btn_save.setBounds(630, 490, 83, 36);
 
         btn_reset.setFont(new java.awt.Font("sansserif", 3, 14)); // NOI18N
         btn_reset.setText("Reset");
@@ -357,7 +406,7 @@ public class TickerOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_reset);
-        btn_reset.setBounds(440, 460, 87, 36);
+        btn_reset.setBounds(440, 490, 87, 36);
 
         label_result.setText("   ");
         getContentPane().add(label_result);
@@ -367,7 +416,7 @@ public class TickerOrder extends javax.swing.JFrame {
         label_final.setForeground(new java.awt.Color(255, 255, 255));
         label_final.setText("   ");
         getContentPane().add(label_final);
-        label_final.setBounds(440, 510, 274, 25);
+        label_final.setBounds(440, 530, 274, 25);
 
         btngroup_payment.add(rb_card);
         rb_card.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -382,10 +431,16 @@ public class TickerOrder extends javax.swing.JFrame {
         getContentPane().add(rb_card);
         rb_card.setBounds(540, 420, 140, 19);
 
+        label_payment.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        label_payment.setForeground(new java.awt.Color(255, 255, 255));
+        label_payment.setText("                    ");
+        getContentPane().add(label_payment);
+        label_payment.setBounds(440, 450, 320, 30);
+
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\800x700 end.png")); // NOI18N
         jLabel8.setText("             ");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, -40, 810, 700);
+        jLabel8.setBounds(0, -30, 810, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -402,8 +457,17 @@ public class TickerOrder extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_cb_dayActionPerformed
 
-    private void tf_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_amountActionPerformed
+    // menghitung total price
+    private void totalPrice(){
+        int price, amount, result;
+        price = Integer.parseInt(label_price.getText());
+        amount = Integer.parseInt(tf_amount.getText());
+        result = price * amount;
+        label_total.setText(String.valueOf(result));
+    }
 
+    private void tf_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_amountActionPerformed
+    
     }//GEN-LAST:event_tf_amountActionPerformed
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
@@ -419,21 +483,19 @@ public class TickerOrder extends javax.swing.JFrame {
             return;
         } 
         else {
-          this.update();
+          this.updateForm();
           label_final.setText("Your data has been saved.");
         }
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void tf_amountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_amountKeyReleased
-        int price, amount, result;
-        price = Integer.parseInt(label_price.getText());
-        amount = Integer.parseInt(tf_amount.getText());
-        result = price * amount;
-        label_total.setText(String.valueOf(result));
+        this.totalPrice();
     }//GEN-LAST:event_tf_amountKeyReleased
 
     private void rb_gopayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_gopayActionPerformed
-        String gopay = rb_gopay.getText();
+       Payment gopay = new Gopay();
+       String payment = gopay.payment();
+       label_payment.setText(payment);
     }//GEN-LAST:event_rb_gopayActionPerformed
 
     private void rb_gopayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb_gopayMouseClicked
@@ -441,20 +503,36 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_gopayMouseClicked
 
     private void rb_shopeepayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_shopeepayActionPerformed
-       String shopeepay = rb_shopeepay.getText();
+       Payment shopeepay = new Shoopepay();
+       String payment = shopeepay.payment();
+       label_payment.setText(payment);
     }//GEN-LAST:event_rb_shopeepayActionPerformed
 
     private void rb_danaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_danaActionPerformed
-       String dana = rb_dana.getText();
+       Payment dana = new Dana();
+       String payment = dana.payment();
+       label_payment.setText(payment);
     }//GEN-LAST:event_rb_danaActionPerformed
 
     private void rb_cashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_cashActionPerformed
-       String cash = rb_cash.getText();
+       Payment cash = new Cash();
+       String payment = cash.payment();
+       label_payment.setText(payment);
     }//GEN-LAST:event_rb_cashActionPerformed
 
     private void rb_cardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_cardActionPerformed
-       String card = rb_card.getText();       
+       Payment card = new CreditCard();
+       String payment = card.payment();  
+       label_payment.setText(payment);  
     }//GEN-LAST:event_rb_cardActionPerformed
+
+    private void tf_amountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_amountMouseClicked
+
+    }//GEN-LAST:event_tf_amountMouseClicked
+
+    private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_nextActionPerformed
 
     
     /**
@@ -513,6 +591,7 @@ public class TickerOrder extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel label_final;
+    private javax.swing.JLabel label_payment;
     private javax.swing.JLabel label_price;
     private javax.swing.JLabel label_result;
     private javax.swing.JLabel label_total;
