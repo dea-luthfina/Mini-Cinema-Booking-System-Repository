@@ -33,8 +33,10 @@ Human human = new Human();
         btn_jujutsu = new javax.swing.JButton();
         btn_luca = new javax.swing.JButton();
         btn_spiderman = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         btn_ali.setBackground(new java.awt.Color(255, 204, 204));
         btn_ali.setFont(new java.awt.Font("Segoe UI Emoji", 0, 16)); // NOI18N
@@ -47,6 +49,13 @@ Human human = new Human();
                 btn_aliMouseClicked(evt);
             }
         });
+        btn_ali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_aliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_ali);
+        btn_ali.setBounds(40, 340, 160, 40);
 
         btn_quiteplace.setBackground(new java.awt.Color(255, 204, 204));
         btn_quiteplace.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -59,6 +68,8 @@ Human human = new Human();
                 btn_quiteplaceMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_quiteplace);
+        btn_quiteplace.setBounds(290, 340, 160, 40);
 
         btn_jujutsu.setBackground(new java.awt.Color(255, 204, 204));
         btn_jujutsu.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -70,6 +81,8 @@ Human human = new Human();
                 btn_jujutsuMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_jujutsu);
+        btn_jujutsu.setBounds(550, 340, 160, 40);
 
         btn_luca.setBackground(new java.awt.Color(255, 204, 204));
         btn_luca.setFont(new java.awt.Font("Segoe UI Emoji", 0, 20)); // NOI18N
@@ -81,6 +94,8 @@ Human human = new Human();
                 btn_lucaMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_luca);
+        btn_luca.setBounds(170, 590, 160, 40);
 
         btn_spiderman.setBackground(new java.awt.Color(255, 204, 204));
         btn_spiderman.setFont(new java.awt.Font("Segoe UI Emoji", 0, 16)); // NOI18N
@@ -93,45 +108,13 @@ Human human = new Human();
                 btn_spidermanMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_spiderman);
+        btn_spiderman.setBounds(420, 590, 160, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 727, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btn_ali, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(85, 85, 85)
-                            .addComponent(btn_quiteplace, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(70, 70, 70)
-                            .addComponent(btn_jujutsu, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(120, 120, 120)
-                            .addComponent(btn_luca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(95, 95, 95)
-                            .addComponent(btn_spiderman, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 594, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btn_ali, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_quiteplace, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_jujutsu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(240, 240, 240)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btn_luca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_spiderman, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\menu.png")); // NOI18N
+        jLabel1.setText("             ");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -20, 800, 750);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +126,8 @@ Human human = new Human();
         TickerOrder to = new TickerOrder();
         setVisible(false);
         to.setVisible(true);
+    
+        this.setStudio();
     }//GEN-LAST:event_btn_aliMouseClicked
 
     private void btn_quiteplaceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_quiteplaceMouseClicked
@@ -152,6 +137,8 @@ Human human = new Human();
         TickerOrder to = new TickerOrder();
         setVisible(false);
         to.setVisible(true);
+    
+        this.setStudio();
     }//GEN-LAST:event_btn_quiteplaceMouseClicked
 
     private void btn_jujutsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_jujutsuMouseClicked
@@ -161,6 +148,8 @@ Human human = new Human();
         TickerOrder to = new TickerOrder();
         setVisible(false);
         to.setVisible(true);
+       
+        this.setStudio();
     }//GEN-LAST:event_btn_jujutsuMouseClicked
 
     private void btn_lucaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lucaMouseClicked
@@ -170,17 +159,45 @@ Human human = new Human();
         TickerOrder to = new TickerOrder();
         setVisible(false);
         to.setVisible(true);
+        
+        this.setStudio();
     }//GEN-LAST:event_btn_lucaMouseClicked
 
     private void btn_spidermanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spidermanMouseClicked
         String film = btn_spiderman.getText();
         this.human.setTitle(film);
-
         TickerOrder to = new TickerOrder();
         setVisible(false);
         to.setVisible(true);
+   
+        this.setStudio();
     }//GEN-LAST:event_btn_spidermanMouseClicked
 
+    private void btn_aliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_aliActionPerformed
+
+    private void setStudio(){
+        String studio = null;
+        if(btn_ali.isSelected()){
+         studio = "Studio 1";
+         }
+        if(btn_jujutsu.isSelected()){
+         studio = "Studio 2";
+         }
+        if(btn_luca.isSelected()){
+         studio = "Studio 3";
+         }
+        if(btn_quiteplace.isSelected()){
+         }
+         studio = "Studio 4";
+        if(btn_spiderman.isSelected()){
+         studio = "Studio 5";
+         }
+
+        this.human.setStudio(studio);
+    
+}
     /**
      * @param args the command line arguments
      */
@@ -222,5 +239,6 @@ Human human = new Human();
     private javax.swing.JButton btn_luca;
     private javax.swing.JButton btn_quiteplace;
     private javax.swing.JButton btn_spiderman;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

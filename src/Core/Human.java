@@ -8,9 +8,9 @@ public class Human {
     private String day;
     private String time;
     private String total;
-    private String price;
     private String payment;
     private String seats;
+    private String studio;
     
 
     // name
@@ -75,15 +75,6 @@ public class Human {
     public String getTotal() {
         return total;
     }
-    
-    // price
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
    
     // payment
     public String getPayment() {
@@ -102,4 +93,15 @@ public class Human {
     public void setSeats(String seats) {
         this.seats = seats;
     }
+
+    // studio
+    public String getStudio() {
+        return studio;
+    }
+
+    public void setStudio(String studio) {
+        this.studio = studio;
+    }
+    
 }
+

@@ -18,53 +18,46 @@ import Core.Human;
 public class CinemaSeats extends javax.swing.JFrame {
 // inisiasi human
  Human human = new Human();
+
     /**
      * Creates new form CinemaSeats
      */
     public CinemaSeats() {
         initComponents();
     }
-
+    
     // Validation
-     private String validation(){
+    private String validation(){
         List<String> flag = new ArrayList<String>();
         String alert = "";
     
     // validasi kursi studio
-        if(!(cb_a1.isSelected())||
-        (cb_a2.isSelected())||
-        (cb_a3.isSelected())||
-        (cb_a4.isSelected())||
-        (cb_a5.isSelected())||
-        (cb_a6.isSelected())||
-        (cb_b1.isSelected())||
-        (cb_b2.isSelected())||
-        (cb_b3.isSelected())||
-        (cb_b4.isSelected())||
-        (cb_b5.isSelected())||
-        (cb_b6.isSelected())||
-        (cb_c1.isSelected())||
-        (cb_c2.isSelected())||
-        (cb_c3.isSelected())||
-        (cb_c4.isSelected())||
-        (cb_c5.isSelected())||
-        (cb_c6.isSelected()) )
-        {
-        flag.add("Please select the seats!");
-    }   
+    this.saveForm();
+    int lines = ta_seats.getLineCount()-1;
+    tf_seats.setText(Integer.toString(lines));
 
-            if(flag.size() > 0)
+        if(lines == 0){
+          flag.add("Please select the seats!");
+        } 
+
+        if(!(Integer.parseInt(this.human.getAmount()) == lines)){
+           flag.add("Limit Seats!");
+        } 
+
         if (flag.size() > 0) {
             for (String msg : flag) {
                 alert += (msg + "\n");
             }
         }
-        return alert; 
-}
+
+        return alert;
+    }
+
 
     // reset form
     private void clearOptions ()   
 { 
+    // check button reset
     cb_a1.setSelected(false);
     cb_a2.setSelected(false);
     cb_a3.setSelected(false);
@@ -84,75 +77,86 @@ public class CinemaSeats extends javax.swing.JFrame {
     cb_c5.setSelected(false);  
     cb_c6.setSelected(false);
  
+    // text area reset
+    ta_seats.setText("");
+
+    // text field reset
+    tf_seats.setText("");
+
+    // label result reset
     label_result.setText("Your data hase been reset.");
 }
 
     // save form
-    private void saveForm()   
-{ 
-     String seats = null;
+    private void saveForm(){ 
+    String seats = "";
      if(cb_a1.isSelected()){
-       seats = cb_a1.getText();
+       seats += cb_a1.getText()+ "\n";
     }
      if(cb_a2.isSelected()){
-       seats = cb_a2.getText();
+       seats += cb_a2.getText()+ "\n";
     }
      if(cb_a3.isSelected()){
-       seats =cb_a3.getText();
+       seats += cb_a3.getText()+ "\n";
     }
      if(cb_a4.isSelected()){
-       seats = cb_a4.getText();
+       seats += cb_a4.getText()+ "\n";
     }
      if(cb_a5.isSelected()){
-       seats = cb_a5.getText();
+       seats += cb_a5.getText()+ "\n";
     }
      if(cb_a6.isSelected()){
-       seats = cb_a6.getText();
+       seats += cb_a6.getText()+ "\n";
     }
      if(cb_b1.isSelected()){
-       seats = cb_b1.getText();
+       seats += cb_b1.getText()+ "\n";
     }
      if(cb_b2.isSelected()){
-       seats = cb_b2.getText();
+       seats += cb_b2.getText()+ "\n";
     }
      if(cb_b3.isSelected()){
-       seats = cb_b3.getText();
+       seats += cb_b3.getText()+ "\n";
     }
      if(cb_b4.isSelected()){
-       seats = cb_b4.getText();
+       seats += cb_b4.getText()+ "\n";
     }
      if(cb_b5.isSelected()){
-       seats = cb_b5.getText();
+       seats += cb_b5.getText()+ "\n";
     }
      if(cb_b6.isSelected()){
-       seats = cb_b6.getText();
+       seats += cb_b6.getText()+ "\n";
     }
      if(cb_c1.isSelected()){
-       seats = cb_c1.getText();
+       seats += cb_c1.getText()+ "\n";
     }
      if(cb_c2.isSelected()){
-       seats = cb_c2.getText();
+       seats += cb_c2.getText()+ "\n";
     }
      if(cb_c3.isSelected()){
-       seats = cb_c3.getText();
+       seats += cb_c3.getText()+ "\n";
     }
      if(cb_c4.isSelected()){
-       seats = cb_c4.getText();
+       seats += cb_c4.getText()+ "\n";
     }
      if(cb_c5.isSelected()){
-       seats = cb_c5.getText();
+       seats += cb_c5.getText()+ "\n";
     }
      if(cb_c6.isSelected()){
-       seats = cb_c6.getText();
+       seats += cb_c6.getText()+ "\n";
     }
-    // save oop
-     this.human.setSeats(seats);
 
-    // text area performance
-//     int lines = ta_seats.getLineCount();
-//     ta_seats.setText(Integer.toString(lines));
-     ta_seats.(seats);
-}
+    // label result save
+    label_result.setText("Your data hase been saved.");
+
+     // text area and field performance
+     ta_seats.setText(seats);
+     ta_seats.setEditable(false);
+     tf_seats.setEditable(false);
+     
+     // OOP performance
+     String seatsSelected = ta_seats.getText();
+     this.human.setSeats(seatsSelected);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -188,8 +192,9 @@ public class CinemaSeats extends javax.swing.JFrame {
         bt_next = new javax.swing.JButton();
         bt_back = new javax.swing.JButton();
         label_result = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         ta_seats = new javax.swing.JTextArea();
+        tf_seats = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jCheckBox8.setText("jCheckBox8");
@@ -341,7 +346,7 @@ public class CinemaSeats extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bt_save);
-        bt_save.setBounds(200, 379, 70, 28);
+        bt_save.setBounds(220, 380, 70, 28);
 
         bt_reset.setText("Reset");
         bt_reset.addActionListener(new java.awt.event.ActionListener() {
@@ -356,27 +361,43 @@ public class CinemaSeats extends javax.swing.JFrame {
         getContentPane().add(label_studio);
         label_studio.setBounds(261, 54, 244, 30);
 
+        bt_next.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         bt_next.setText("Next");
+        bt_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_nextActionPerformed(evt);
+            }
+        });
         getContentPane().add(bt_next);
-        bt_next.setBounds(632, 509, 70, 28);
+        bt_next.setBounds(570, 590, 100, 40);
 
+        bt_back.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         bt_back.setText("Back");
+        bt_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_backActionPerformed(evt);
+            }
+        });
         getContentPane().add(bt_back);
-        bt_back.setBounds(90, 509, 80, 28);
+        bt_back.setBounds(90, 590, 100, 40);
 
         label_result.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_result.setForeground(new java.awt.Color(255, 255, 255));
         label_result.setText("      ");
         getContentPane().add(label_result);
-        label_result.setBounds(90, 430, 250, 24);
+        label_result.setBounds(90, 414, 250, 40);
 
         ta_seats.setColumns(20);
-        ta_seats.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        ta_seats.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         ta_seats.setRows(5);
-        jScrollPane1.setViewportView(ta_seats);
+        jScrollPane2.setViewportView(ta_seats);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(388, 370, 300, 98);
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(540, 370, 130, 110);
+
+        tf_seats.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        getContentPane().add(tf_seats);
+        tf_seats.setBounds(470, 370, 60, 50);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -409,8 +430,16 @@ public class CinemaSeats extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_resetActionPerformed
 
     private void cb_a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_a2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_cb_a2ActionPerformed
+
+    private void bt_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_backActionPerformed
+        new TickerOrder().show();
+    }//GEN-LAST:event_bt_backActionPerformed
+
+    private void bt_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_nextActionPerformed
+        new Output().show();
+    }//GEN-LAST:event_bt_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -472,10 +501,11 @@ public class CinemaSeats extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_c6;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel label_result;
     private javax.swing.JLabel label_studio;
     private javax.swing.JTextArea ta_seats;
+    private javax.swing.JTextField tf_seats;
     // End of variables declaration//GEN-END:variables
 
 }

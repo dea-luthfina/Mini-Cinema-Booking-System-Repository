@@ -56,7 +56,7 @@ public class TickerOrder extends javax.swing.JFrame {
         String name = tf_name.getText();
         this.human.setName(name);
 
-        String phone = tf_name.getText();
+        String phone = tf_phone.getText();
         this.human.setPhone(phone);
 
         String amount = tf_amount.getText();
@@ -68,10 +68,6 @@ public class TickerOrder extends javax.swing.JFrame {
         
         String time = cb_time.getSelectedItem().toString();
         this.human.setTime(time);
-        
-        // save label
-        String price = label_price.getText();
-        this.human.setTotal(price);
 
         String total = label_total.getText();
         this.human.setTotal(total);
@@ -351,6 +347,11 @@ public class TickerOrder extends javax.swing.JFrame {
 
         btn_back.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         btn_back.setText("Back");
+        btn_back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_backActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_back);
         btn_back.setBounds(61, 595, 94, 38);
 
@@ -531,8 +532,12 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_amountMouseClicked
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-        // TODO add your handling code here:
+        new CinemaSeats().show();
     }//GEN-LAST:event_btn_nextActionPerformed
+
+    private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        new Menu().show();
+    }//GEN-LAST:event_btn_backActionPerformed
 
     
     /**

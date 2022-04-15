@@ -23,7 +23,7 @@ public class Output extends javax.swing.JFrame {
      
     Human human = new Human();
 
-    public void ta_output(){
+    public void Output(){
        
         ta_output.setText("Detail Transaction"
             + " "
@@ -36,29 +36,11 @@ public class Output extends javax.swing.JFrame {
             + "\n   Payment Methods : " + human.getPayment()
             + "\n   Total Payment   : " + human.getTotal()
         );
+
+        tf_studio.setText(human.getStudio());
+        ta_seats.setText(human.getSeats());
     }
 
-    // Menampilkan studio sesuai film yg dipilih
-    public void setLabelStudio(){
-
-        if (human.getTitle("Ali & ratu ratu queens")){
-            lbl_studio.setText("1");
-        } else if (this.human.getTitle("A Quite Place 2")){
-            lbl_studio.setText("2");
-        } else if (this.human.getTitle("Jujutsu Kaisen 0")){
-            lbl_studio.setText("3");
-        } else if (this.human.getTitle("Luca")){
-            lbl_studio.setText("4");
-        } else {
-            lbl_studio.setText("5");
-        }
-    }
-
-
-    // Menampilkan seats discroll panel, fungsi "toString' buat ngubah object (check box kursi) jd String (kata/huruf)
-    public void setSeats(StringBuilder Seats){
-        ta_seats.setText(Seats.toString());
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,38 +51,43 @@ public class Output extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ta_output = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ta_output = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        ta_seats = new javax.swing.JTextArea();
         btn_exit = new javax.swing.JButton();
-        lbl_studio = new javax.swing.JLabel();
+        tf_studio = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_seats = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        ta_output.setColumns(20);
+        ta_output.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ta_output.setRows(5);
+        getContentPane().add(ta_output);
+        ta_output.setBounds(90, 160, 352, 380);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 55)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BILL PAYMENT");
         jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(200, 80, 390, 56);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("STUDIO");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(540, 150, 130, 32);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("SEATS");
-
-        ta_output.setColumns(20);
-        ta_output.setRows(5);
-        jScrollPane1.setViewportView(ta_output);
-
-        ta_seats.setColumns(20);
-        ta_seats.setRows(5);
-        jScrollPane6.setViewportView(ta_seats);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(550, 360, 120, 32);
 
         btn_exit.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_exit.setText("EXIT");
@@ -110,67 +97,24 @@ public class Output extends javax.swing.JFrame {
                 btn_exitActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_exit);
+        btn_exit.setBounds(560, 580, 101, 37);
 
-        lbl_studio.setFont(new java.awt.Font("Segoe UI", 0, 80)); // NOI18N
-        lbl_studio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_studio.setToolTipText("");
+        tf_studio.setText("     ");
+        getContentPane().add(tf_studio);
+        tf_studio.setBounds(540, 190, 130, 130);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 716, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(138, 138, 138)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(59, 59, 59)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_studio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(408, 408, 408)
-                            .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 671, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(59, 59, 59)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addComponent(lbl_studio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel2))
-                            .addGap(40, 40, 40)
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(16, 16, 16)
-                    .addComponent(btn_exit)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        ta_seats.setColumns(20);
+        ta_seats.setRows(5);
+        jScrollPane2.setViewportView(ta_seats);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(530, 410, 150, 130);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\bill.png")); // NOI18N
+        jLabel4.setText("          ");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 800, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,10 +163,10 @@ public class Output extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JLabel lbl_studio;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea ta_output;
     private javax.swing.JTextArea ta_seats;
+    private javax.swing.JTextField tf_studio;
     // End of variables declaration//GEN-END:variables
 }
