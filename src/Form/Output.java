@@ -24,21 +24,31 @@ public class Output extends javax.swing.JFrame {
     Human human = new Human();
 
     public void Output(){
-       
+        String film = human.getTitle();
+        String name = human.getName();
+        String phone = human.getPhone();
+        String tickets = human.getAmount();
+        String day = human.getDay();
+        String time = human.getTime();
+        String payment = human.getPayment();
+        String total = human.getTotal();
+        String studio = human.getStudio();
+        String seats = human.getSeats();
+
         ta_output.setText("Detail Transaction"
             + " "
-            + human.getTitle()
-            + "\n   Name            : " + human.getName()
-            + "\n   Phone Number    : " + human.getPhone()
-            + "\n   Tickets         : " + human.getAmount()
-            + "\n   Day             : " + human.getDay()
-            + "\n   Time            : " + human.getTime()
-            + "\n   Payment Methods : " + human.getPayment()
-            + "\n   Total Payment   : " + human.getTotal()
+            + "\n   Film            : " + film
+            + "\n   Name            : " + name
+            + "\n   Phone Number    : " + phone
+            + "\n   Tickets         : " + tickets
+            + "\n   Day             : " + day
+            + "\n   Time            : " + time
+            + "\n   Payment Methods : " + payment
+            + "\n   Total Payment   : " + total
         );
 
-        tf_studio.setText(human.getStudio());
-        ta_seats.setText(human.getSeats());
+        tf_studio.setText(studio);
+        ta_seats.setText(seats);
     }
 
 
