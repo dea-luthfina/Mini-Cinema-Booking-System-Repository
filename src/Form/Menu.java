@@ -5,6 +5,14 @@
 package Form;
 import Form.TickerOrder;
 import Core.Human;
+import Core.Studio1;
+import Core.Studio2;
+import Core.Studio3;
+import Core.Studio4;
+import Core.Studio5;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 
 /**
  *
@@ -17,6 +25,15 @@ Human human = new Human();
      */
     public Menu() {
         initComponents();
+
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
 
     /**
@@ -33,16 +50,21 @@ Human human = new Human();
         btn_jujutsu = new javax.swing.JButton();
         btn_luca = new javax.swing.JButton();
         btn_spiderman = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_ali.setBackground(new java.awt.Color(255, 204, 204));
         btn_ali.setFont(new java.awt.Font("Segoe UI Emoji", 0, 16)); // NOI18N
         btn_ali.setForeground(new java.awt.Color(51, 51, 51));
+        btn_ali.setText("Ali & Ratu Ratu Queens");
         btn_ali.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btn_ali.setLabel("Ali & ratu ratu queens");
         btn_ali.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btn_ali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -54,8 +76,7 @@ Human human = new Human();
                 btn_aliActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_ali);
-        btn_ali.setBounds(40, 340, 160, 40);
+        getContentPane().add(btn_ali, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 180, 40));
 
         btn_quiteplace.setBackground(new java.awt.Color(255, 204, 204));
         btn_quiteplace.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -68,8 +89,7 @@ Human human = new Human();
                 btn_quiteplaceMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_quiteplace);
-        btn_quiteplace.setBounds(290, 340, 160, 40);
+        getContentPane().add(btn_quiteplace, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 160, 40));
 
         btn_jujutsu.setBackground(new java.awt.Color(255, 204, 204));
         btn_jujutsu.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -81,8 +101,7 @@ Human human = new Human();
                 btn_jujutsuMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_jujutsu);
-        btn_jujutsu.setBounds(550, 340, 160, 40);
+        getContentPane().add(btn_jujutsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 160, 40));
 
         btn_luca.setBackground(new java.awt.Color(255, 204, 204));
         btn_luca.setFont(new java.awt.Font("Segoe UI Emoji", 0, 20)); // NOI18N
@@ -94,8 +113,7 @@ Human human = new Human();
                 btn_lucaMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_luca);
-        btn_luca.setBounds(170, 590, 160, 40);
+        getContentPane().add(btn_luca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, 160, 40));
 
         btn_spiderman.setBackground(new java.awt.Color(255, 204, 204));
         btn_spiderman.setFont(new java.awt.Font("Segoe UI Emoji", 0, 16)); // NOI18N
@@ -108,96 +126,110 @@ Human human = new Human();
                 btn_spidermanMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_spiderman);
-        btn_spiderman.setBounds(420, 590, 160, 40);
+        getContentPane().add(btn_spiderman, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 630, 160, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\ali.jpg")); // NOI18N
+        jLabel3.setText("              ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\a quite place 2.jpg")); // NOI18N
+        jLabel4.setText("         ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, 230));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\jujutsu kaisen 0.jpg")); // NOI18N
+        jLabel2.setText("        ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\luca.jpg")); // NOI18N
+        jLabel5.setText("            ");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\spider-man.jpg")); // NOI18N
+        jLabel6.setText("          ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\menu.png")); // NOI18N
         jLabel1.setText("             ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -20, 800, 750);
+        jLabel1.setPreferredSize(new java.awt.Dimension(800, 700));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_aliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_aliMouseClicked
+        // mengambil data film yang dipilih
         String film = btn_ali.getText();
         this.human.setTitle(film);
-
-        TickerOrder to = new TickerOrder();
-        setVisible(false);
-        to.setVisible(true);
     
-        this.setStudio();
+        // inisiasi kelas studio untuk menentukan studio
+        Studio1 studio = new Studio1();
+        String studio1 = studio.studio1();
+        this.human.setStudio(studio1);
+
+        // lanjurt ke halaman berikutnya
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_btn_aliMouseClicked
 
     private void btn_quiteplaceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_quiteplaceMouseClicked
+       // mengambil data film yang dipilih
         String film = btn_quiteplace.getText();
         this.human.setTitle(film);
-
-        TickerOrder to = new TickerOrder();
-        setVisible(false);
-        to.setVisible(true);
     
-        this.setStudio();
+        // inisiasi kelas studio untuk menentukan studio
+        Studio2 studio = new Studio2();
+        String studio2 = studio.studio2();
+        this.human.setStudio(studio2);
+
+        // lanjut ke halaman berikutnya
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_btn_quiteplaceMouseClicked
 
     private void btn_jujutsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_jujutsuMouseClicked
+        // mengambil data film yang dipilih
         String film = btn_jujutsu.getText();
         this.human.setTitle(film);
+    
+        // inisiasi kelas studio untuk menentukan studio
+        Studio3 studio = new Studio3();
+        String studio3 = studio.studio3();
+        this.human.setStudio(studio3);
 
-        TickerOrder to = new TickerOrder();
-        setVisible(false);
-        to.setVisible(true);
-       
-        this.setStudio();
+        // lanjut ke halaman berikutnya
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_btn_jujutsuMouseClicked
 
     private void btn_lucaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lucaMouseClicked
+        // mengambil data film yang dipilih
         String film = btn_luca.getText();
         this.human.setTitle(film);
+    
+        // inisiasi kelas studio untuk menentukan studio
+        Studio4 studio = new Studio4();
+        String studio4 = studio.studio4();
+        this.human.setStudio(studio4);
 
-        TickerOrder to = new TickerOrder();
-        setVisible(false);
-        to.setVisible(true);
-        
-        this.setStudio();
+        // lanjut ke halaman berikutnya
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_btn_lucaMouseClicked
 
     private void btn_spidermanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spidermanMouseClicked
+        // mengambil data film yang dipilih
         String film = btn_spiderman.getText();
         this.human.setTitle(film);
-        TickerOrder to = new TickerOrder();
-        setVisible(false);
-        to.setVisible(true);
-   
-        this.setStudio();
+    
+        // inisiasi kelas studio untuk menentukan studio
+        Studio5 studio = new Studio5();
+        String studio5 = studio.studio5();
+        this.human.setStudio(studio5);
+
+        // lanjut ke halaman berikutnya
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_btn_spidermanMouseClicked
 
     private void btn_aliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_aliActionPerformed
 
-    private void setStudio(){
-        String studio = null;
-        if(btn_ali.isSelected()){
-         studio = "Studio 1";
-         }
-        if(btn_jujutsu.isSelected()){
-         studio = "Studio 2";
-         }
-        if(btn_luca.isSelected()){
-         studio = "Studio 3";
-         }
-        if(btn_quiteplace.isSelected()){
-         }
-         studio = "Studio 4";
-        if(btn_spiderman.isSelected()){
-         studio = "Studio 5";
-         }
-
-        this.human.setStudio(studio);
-    
-}
     /**
      * @param args the command line arguments
      */
@@ -240,5 +272,10 @@ Human human = new Human();
     private javax.swing.JButton btn_quiteplace;
     private javax.swing.JButton btn_spiderman;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }

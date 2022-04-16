@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 
 // import OOP
 import Core.Human;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -22,8 +24,18 @@ public class CinemaSeats extends javax.swing.JFrame {
     /**
      * Creates new form CinemaSeats
      */
-    public CinemaSeats() {
+    public CinemaSeats(Human human) {
+        this.human = human;
         initComponents();
+
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
     
     // Validation
@@ -201,7 +213,7 @@ public class CinemaSeats extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 700));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cb_a1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a1.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,8 +224,7 @@ public class CinemaSeats extends javax.swing.JFrame {
                 cb_a1ActionPerformed(evt);
             }
         });
-        getContentPane().add(cb_a1);
-        cb_a1.setBounds(91, 129, 70, 47);
+        getContentPane().add(cb_a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 129, 70, -1));
 
         cb_a2.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a2.setForeground(new java.awt.Color(255, 255, 255));
@@ -224,120 +235,103 @@ public class CinemaSeats extends javax.swing.JFrame {
                 cb_a2ActionPerformed(evt);
             }
         });
-        getContentPane().add(cb_a2);
-        cb_a2.setBounds(176, 129, 80, 47);
+        getContentPane().add(cb_a2, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 129, 80, -1));
 
         cb_a3.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a3.setForeground(new java.awt.Color(255, 255, 255));
         cb_a3.setText("A3");
         cb_a3.setContentAreaFilled(false);
-        getContentPane().add(cb_a3);
-        cb_a3.setBounds(261, 129, 90, 47);
+        getContentPane().add(cb_a3, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 129, 90, -1));
 
         cb_a4.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a4.setForeground(new java.awt.Color(255, 255, 255));
         cb_a4.setText("A4");
         cb_a4.setContentAreaFilled(false);
-        getContentPane().add(cb_a4);
-        cb_a4.setBounds(414, 129, 80, 47);
+        getContentPane().add(cb_a4, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 129, 80, -1));
 
         cb_a5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a5.setForeground(new java.awt.Color(255, 255, 255));
         cb_a5.setText("A5");
         cb_a5.setContentAreaFilled(false);
-        getContentPane().add(cb_a5);
-        cb_a5.setBounds(511, 129, 80, 47);
+        getContentPane().add(cb_a5, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 129, 80, -1));
 
         cb_a6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_a6.setForeground(new java.awt.Color(255, 255, 255));
         cb_a6.setText("A6");
         cb_a6.setContentAreaFilled(false);
-        getContentPane().add(cb_a6);
-        cb_a6.setBounds(607, 129, 80, 47);
+        getContentPane().add(cb_a6, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 129, 80, -1));
 
         cb_b1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b1.setForeground(new java.awt.Color(255, 255, 255));
         cb_b1.setText("B1");
         cb_b1.setContentAreaFilled(false);
-        getContentPane().add(cb_b1);
-        cb_b1.setBounds(90, 214, 80, 47);
+        getContentPane().add(cb_b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 214, 80, -1));
 
         cb_b2.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b2.setForeground(new java.awt.Color(255, 255, 255));
         cb_b2.setText("B2");
         cb_b2.setContentAreaFilled(false);
-        getContentPane().add(cb_b2);
-        cb_b2.setBounds(176, 214, 80, 47);
+        getContentPane().add(cb_b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 214, 80, -1));
 
         cb_b4.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b4.setForeground(new java.awt.Color(255, 255, 255));
         cb_b4.setText("B4");
         cb_b4.setContentAreaFilled(false);
-        getContentPane().add(cb_b4);
-        cb_b4.setBounds(414, 214, 90, 47);
+        getContentPane().add(cb_b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 214, 90, -1));
 
         cb_c6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c6.setForeground(new java.awt.Color(255, 255, 255));
         cb_c6.setText("C6");
         cb_c6.setContentAreaFilled(false);
-        getContentPane().add(cb_c6);
-        cb_c6.setBounds(607, 304, 80, 47);
+        getContentPane().add(cb_c6, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 304, 80, -1));
 
         cb_b5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b5.setForeground(new java.awt.Color(255, 255, 255));
         cb_b5.setText("B5");
         cb_b5.setContentAreaFilled(false);
-        getContentPane().add(cb_b5);
-        cb_b5.setBounds(511, 214, 80, 47);
+        getContentPane().add(cb_b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 214, 80, -1));
 
         cb_c1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c1.setForeground(new java.awt.Color(255, 255, 255));
         cb_c1.setText("C1");
         cb_c1.setContentAreaFilled(false);
-        getContentPane().add(cb_c1);
-        cb_c1.setBounds(90, 304, 80, 47);
+        getContentPane().add(cb_c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 304, 80, -1));
 
         cb_b3.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b3.setForeground(new java.awt.Color(255, 255, 255));
         cb_b3.setText("B3");
         cb_b3.setContentAreaFilled(false);
-        getContentPane().add(cb_b3);
-        cb_b3.setBounds(267, 214, 80, 47);
+        getContentPane().add(cb_b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 214, 80, -1));
 
         cb_b6.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_b6.setForeground(new java.awt.Color(255, 255, 255));
         cb_b6.setText("B6");
         cb_b6.setContentAreaFilled(false);
-        getContentPane().add(cb_b6);
-        cb_b6.setBounds(607, 214, 90, 47);
+        getContentPane().add(cb_b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 214, 90, -1));
 
         cb_c2.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c2.setForeground(new java.awt.Color(255, 255, 255));
         cb_c2.setText("C2");
         cb_c2.setContentAreaFilled(false);
-        getContentPane().add(cb_c2);
-        cb_c2.setBounds(176, 304, 80, 47);
+        getContentPane().add(cb_c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 304, 80, -1));
 
         cb_c4.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c4.setForeground(new java.awt.Color(255, 255, 255));
         cb_c4.setText("C4");
         cb_c4.setContentAreaFilled(false);
-        getContentPane().add(cb_c4);
-        cb_c4.setBounds(414, 304, 79, 47);
+        getContentPane().add(cb_c4, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 304, 79, -1));
 
         cb_c3.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c3.setForeground(new java.awt.Color(255, 255, 255));
         cb_c3.setText("C3");
         cb_c3.setContentAreaFilled(false);
-        getContentPane().add(cb_c3);
-        cb_c3.setBounds(267, 304, 80, 47);
+        getContentPane().add(cb_c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 304, 80, -1));
 
         cb_c5.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         cb_c5.setForeground(new java.awt.Color(255, 255, 255));
         cb_c5.setText("C5");
         cb_c5.setContentAreaFilled(false);
-        getContentPane().add(cb_c5);
-        cb_c5.setBounds(511, 304, 80, 47);
+        getContentPane().add(cb_c5, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 304, 80, -1));
 
         bt_save.setText("Save");
         bt_save.addActionListener(new java.awt.event.ActionListener() {
@@ -345,8 +339,7 @@ public class CinemaSeats extends javax.swing.JFrame {
                 bt_saveActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_save);
-        bt_save.setBounds(220, 380, 70, 28);
+        getContentPane().add(bt_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 70, -1));
 
         bt_reset.setText("Reset");
         bt_reset.addActionListener(new java.awt.event.ActionListener() {
@@ -354,12 +347,11 @@ public class CinemaSeats extends javax.swing.JFrame {
                 bt_resetActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_reset);
-        bt_reset.setBounds(90, 379, 70, 28);
+        getContentPane().add(bt_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 379, 70, -1));
 
-        label_studio.setText("                                                                              ");
-        getContentPane().add(label_studio);
-        label_studio.setBounds(261, 54, 244, 30);
+        label_studio.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
+        label_studio.setText("SELECT YOUR SEATS!");
+        getContentPane().add(label_studio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 410, 30));
 
         bt_next.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         bt_next.setText("Next");
@@ -368,8 +360,7 @@ public class CinemaSeats extends javax.swing.JFrame {
                 bt_nextActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_next);
-        bt_next.setBounds(570, 590, 100, 40);
+        getContentPane().add(bt_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 100, 40));
 
         bt_back.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         bt_back.setText("Back");
@@ -378,33 +369,28 @@ public class CinemaSeats extends javax.swing.JFrame {
                 bt_backActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_back);
-        bt_back.setBounds(90, 590, 100, 40);
+        getContentPane().add(bt_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 100, 40));
 
         label_result.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_result.setForeground(new java.awt.Color(255, 255, 255));
         label_result.setText("      ");
-        getContentPane().add(label_result);
-        label_result.setBounds(90, 414, 250, 40);
+        getContentPane().add(label_result, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 414, 250, 40));
 
         ta_seats.setColumns(20);
         ta_seats.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         ta_seats.setRows(5);
         jScrollPane2.setViewportView(ta_seats);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(540, 370, 130, 110);
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 130, 110));
 
         tf_seats.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        getContentPane().add(tf_seats);
-        tf_seats.setBounds(470, 370, 60, 50);
+        getContentPane().add(tf_seats, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 60, 50));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\seats.png")); // NOI18N
         jLabel1.setText("              ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 670);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -434,12 +420,13 @@ public class CinemaSeats extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_a2ActionPerformed
 
     private void bt_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_backActionPerformed
-        new TickerOrder().show();
+        new TickerOrder(this.human).show();
     }//GEN-LAST:event_bt_backActionPerformed
 
     private void bt_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_nextActionPerformed
-        new Output().show();
+        new Bill(this.human).show();
     }//GEN-LAST:event_bt_nextActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -471,7 +458,7 @@ public class CinemaSeats extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CinemaSeats().setVisible(true);
+                new CinemaSeats(null).setVisible(true);
             }
         });
     }

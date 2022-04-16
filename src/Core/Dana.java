@@ -14,6 +14,6 @@ public class Dana extends Payment{
      */
     @Override
     public String payment() {
-    return "Dana. Please scan the barcode.";
+    return "Dana. Please prepare the application";
   }
 }

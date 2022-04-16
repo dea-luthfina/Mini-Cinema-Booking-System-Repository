@@ -8,12 +8,8 @@ package Core;
  *
  * @author Prio
  */
-public class Shoopepay extends Payment{
-    /**
-     *
-     */
-    @Override
-    public String payment() {
-    return "ShopeePay.";
-  }
+public class Studio5 extends Studio{
+    public String studio5(){
+        return "5";
+    }
 }

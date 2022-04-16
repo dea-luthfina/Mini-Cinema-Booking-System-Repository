@@ -1,6 +1,5 @@
 
 package cinematickets;
-import Form.CinemaSeats;
 import Form.Home;
 
 public class CinemaTickets {

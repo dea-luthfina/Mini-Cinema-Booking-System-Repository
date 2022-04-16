@@ -13,6 +13,8 @@ import Core.Dana;
 import Core.Cash;
 import Core.CreditCard;
 import Core.Gopay;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class TickerOrder extends javax.swing.JFrame {
 
@@ -27,8 +29,18 @@ public class TickerOrder extends javax.swing.JFrame {
     /**
      * Creates new form TickerOrder
      */
-    public TickerOrder() {
+    public TickerOrder(Human human) {
+        this.human = human;
         initComponents();
+
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
     
     // fungsi reset
@@ -196,13 +208,12 @@ public class TickerOrder extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 700));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Day");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(90, 240, 34, 24);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         tf_amount.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         tf_amount.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,8 +231,7 @@ public class TickerOrder extends javax.swing.JFrame {
                 tf_amountKeyReleased(evt);
             }
         });
-        getContentPane().add(tf_amount);
-        tf_amount.setBounds(32, 371, 165, 31);
+        getContentPane().add(tf_amount, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 371, 165, -1));
 
         btngroup_payment.add(rb_shopeepay);
         rb_shopeepay.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -233,14 +243,12 @@ public class TickerOrder extends javax.swing.JFrame {
                 rb_shopeepayActionPerformed(evt);
             }
         });
-        getContentPane().add(rb_shopeepay);
-        rb_shopeepay.setBounds(537, 377, 120, 19);
+        getContentPane().add(rb_shopeepay, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 377, 120, -1));
 
         jLabel9.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Ticket Amount");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(41, 341, 127, 24);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 341, -1, -1));
 
         btngroup_payment.add(rb_dana);
         rb_dana.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -252,20 +260,17 @@ public class TickerOrder extends javax.swing.JFrame {
                 rb_danaActionPerformed(evt);
             }
         });
-        getContentPane().add(rb_dana);
-        rb_dana.setBounds(667, 377, 80, 19);
+        getContentPane().add(rb_dana, new org.netbeans.lib.awtextra.AbsoluteConstraints(667, 377, 80, -1));
 
         jLabel6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Time");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(310, 240, 44, 24);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total Price");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(279, 341, 100, 24);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 341, 100, -1));
 
         btngroup_payment.add(rb_cash);
         rb_cash.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -277,8 +282,7 @@ public class TickerOrder extends javax.swing.JFrame {
                 rb_cashActionPerformed(evt);
             }
         });
-        getContentPane().add(rb_cash);
-        rb_cash.setBounds(434, 420, 90, 19);
+        getContentPane().add(rb_cash, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 420, 90, -1));
 
         cb_day.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         cb_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select day", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
@@ -287,63 +291,52 @@ public class TickerOrder extends javax.swing.JFrame {
                 cb_dayActionPerformed(evt);
             }
         });
-        getContentPane().add(cb_day);
-        cb_day.setBounds(32, 265, 145, 29);
+        getContentPane().add(cb_day, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 265, 145, -1));
 
         label_total.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_total.setForeground(new java.awt.Color(255, 255, 255));
         label_total.setText("   ");
-        getContentPane().add(label_total);
-        label_total.setBounds(289, 373, 90, 24);
+        getContentPane().add(label_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 373, 90, -1));
 
         jLabel7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Ticket Price");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(470, 240, 103, 24);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
         cb_time.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         cb_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select time", "13.30", "15.40", "17.50", "20.00" }));
-        getContentPane().add(cb_time);
-        cb_time.setBounds(257, 265, 149, 29);
+        getContentPane().add(cb_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 265, 149, -1));
 
         label_price.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_price.setForeground(new java.awt.Color(255, 255, 255));
         label_price.setText("    ");
-        getContentPane().add(label_price);
-        label_price.setBounds(489, 265, 131, 24);
+        getContentPane().add(label_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 265, 131, -1));
 
         jLabel12.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Payment Methods");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(462, 341, 158, 24);
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 341, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(32, 92, 51, 24);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 92, -1, -1));
 
         tf_phone.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        getContentPane().add(tf_phone);
-        tf_phone.setBounds(254, 122, 188, 31);
+        getContentPane().add(tf_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 122, 188, -1));
 
         tf_name.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        getContentPane().add(tf_name);
-        tf_name.setBounds(32, 122, 174, 31);
+        getContentPane().add(tf_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 122, 174, -1));
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Phone Number");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(254, 92, 131, 24);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 92, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Biodata");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(32, 56, 156, 30);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 56, 156, 30));
 
         btn_back.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         btn_back.setText("Back");
@@ -352,14 +345,12 @@ public class TickerOrder extends javax.swing.JFrame {
                 btn_backActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_back);
-        btn_back.setBounds(61, 595, 94, 38);
+        getContentPane().add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 595, 94, 38));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Payment");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(32, 197, 99, 32);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 197, -1, -1));
 
         btn_next.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         btn_next.setText("Next");
@@ -368,8 +359,7 @@ public class TickerOrder extends javax.swing.JFrame {
                 btn_nextActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_next);
-        btn_next.setBounds(602, 594, 106, 41);
+        getContentPane().add(btn_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 594, 106, 41));
 
         btngroup_payment.add(rb_gopay);
         rb_gopay.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -386,8 +376,7 @@ public class TickerOrder extends javax.swing.JFrame {
                 rb_gopayActionPerformed(evt);
             }
         });
-        getContentPane().add(rb_gopay);
-        rb_gopay.setBounds(434, 377, 110, 19);
+        getContentPane().add(rb_gopay, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 377, 110, -1));
 
         btn_save.setFont(new java.awt.Font("sansserif", 3, 14)); // NOI18N
         btn_save.setText("Save");
@@ -396,8 +385,7 @@ public class TickerOrder extends javax.swing.JFrame {
                 btn_saveActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_save);
-        btn_save.setBounds(630, 490, 83, 36);
+        getContentPane().add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 83, 36));
 
         btn_reset.setFont(new java.awt.Font("sansserif", 3, 14)); // NOI18N
         btn_reset.setText("Reset");
@@ -406,18 +394,15 @@ public class TickerOrder extends javax.swing.JFrame {
                 btn_resetActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_reset);
-        btn_reset.setBounds(440, 490, 87, 36);
+        getContentPane().add(btn_reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 87, 36));
 
         label_result.setText("   ");
-        getContentPane().add(label_result);
-        label_result.setBounds(396, 550, 9, 16);
+        getContentPane().add(label_result, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 550, -1, -1));
 
         label_final.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_final.setForeground(new java.awt.Color(255, 255, 255));
         label_final.setText("   ");
-        getContentPane().add(label_final);
-        label_final.setBounds(440, 530, 274, 25);
+        getContentPane().add(label_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 274, 25));
 
         btngroup_payment.add(rb_card);
         rb_card.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -429,19 +414,17 @@ public class TickerOrder extends javax.swing.JFrame {
                 rb_cardActionPerformed(evt);
             }
         });
-        getContentPane().add(rb_card);
-        rb_card.setBounds(540, 420, 140, 19);
+        getContentPane().add(rb_card, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 140, -1));
 
         label_payment.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         label_payment.setForeground(new java.awt.Color(255, 255, 255));
         label_payment.setText("                    ");
-        getContentPane().add(label_payment);
-        label_payment.setBounds(440, 450, 320, 30);
+        getContentPane().add(label_payment, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 320, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\800x700 end.png")); // NOI18N
         jLabel8.setText("             ");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, -30, 810, 700);
+        jLabel8.setPreferredSize(new java.awt.Dimension(800, 700));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -532,7 +515,7 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_amountMouseClicked
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-        new CinemaSeats().show();
+        new CinemaSeats(this.human).show();
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -570,7 +553,7 @@ public class TickerOrder extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TickerOrder().setVisible(true);
+                new TickerOrder(null).setVisible(true);
             }
         });
     }

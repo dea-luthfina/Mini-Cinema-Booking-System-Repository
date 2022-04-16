@@ -4,6 +4,9 @@
  */
 package Form;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Prio
@@ -15,6 +18,15 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+
+        // mengambil ukuran layar
+        Dimension layar = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // membuat titik x dan y
+        int x = layar.width / 2  - this.getSize().width / 2;
+        int y = layar.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
 
     /**
@@ -54,7 +66,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Menu().show();
+        new Login().show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

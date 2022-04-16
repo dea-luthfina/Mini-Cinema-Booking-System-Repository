@@ -15,6 +15,6 @@ public class Gopay extends Payment{
      */
     @Override
     public String payment() {
-    return "Gopay. Please prepare the barcode.";
+    return "Gopay. Please prepare the application.";
   }
 }
