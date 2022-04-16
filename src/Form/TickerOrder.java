@@ -162,6 +162,25 @@ public class TickerOrder extends javax.swing.JFrame {
         return alert;
     }
 
+    // validasi ticket amount agar tidak error
+        private String validateTicket() {
+        List<String> flag = new ArrayList<String>();
+        String alert = "";
+        
+        // pilih hari terlebih dahulu
+        if(cb_day.getSelectedIndex()== 0) {
+            flag.add("Please select the day!");
+        }
+
+        if (flag.size() > 0) {
+            for (String msg : flag) {
+                alert += (msg + "\n");
+            }
+        }
+
+        return alert;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,6 +244,9 @@ public class TickerOrder extends javax.swing.JFrame {
             }
         });
         tf_amount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tf_amountKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_amountKeyReleased(evt);
             }
@@ -433,7 +455,7 @@ public class TickerOrder extends javax.swing.JFrame {
       if (cb_day.getSelectedIndex()==0){
         label_price.setText(" ");
       }
-      else if (cb_day.getSelectedIndex()< 5){
+      else if (cb_day.getSelectedIndex()< 6){
         label_price.setText("35000");
       }
       else{
@@ -451,7 +473,7 @@ public class TickerOrder extends javax.swing.JFrame {
     }
 
     private void tf_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_amountActionPerformed
-    
+                      
     }//GEN-LAST:event_tf_amountActionPerformed
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
@@ -473,15 +495,7 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void tf_amountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_amountKeyReleased
-        String validation = this.validateForm();
-        if(validation.length() > 0) {
-            JOptionPane.showMessageDialog(null, validation, "Validation Error!", 
-            JOptionPane.INFORMATION_MESSAGE);
-            return;
-        } 
-        else {
-           this.totalPrice();
-        }
+         this.totalPrice();
     }//GEN-LAST:event_tf_amountKeyReleased
 
     private void rb_gopayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_gopayActionPerformed
@@ -519,7 +533,14 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_cardActionPerformed
 
     private void tf_amountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_amountMouseClicked
-
+        String validation = this.validateTicket();
+        if(validation.length() > 0) {
+            JOptionPane.showMessageDialog(null, validation, "Validation Error!", 
+            JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
+        else {
+        }   
     }//GEN-LAST:event_tf_amountMouseClicked
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
@@ -537,6 +558,10 @@ public class TickerOrder extends javax.swing.JFrame {
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         new Menu().show();
     }//GEN-LAST:event_btn_backActionPerformed
+
+    private void tf_amountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_amountKeyPressed
+
+    }//GEN-LAST:event_tf_amountKeyPressed
 
     
     /**

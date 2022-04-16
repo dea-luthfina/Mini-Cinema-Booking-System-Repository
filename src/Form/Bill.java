@@ -164,6 +164,11 @@ public class Bill extends javax.swing.JFrame {
 
         bt_exit.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
         bt_exit.setText("EXIT");
+        bt_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(bt_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 610, 122, -1));
 
         bt_pay.setFont(new java.awt.Font("sansserif", 3, 24)); // NOI18N
@@ -194,6 +199,10 @@ public class Bill extends javax.swing.JFrame {
        this.setLabel();
        this.setLabelPay();
     }//GEN-LAST:event_bt_payActionPerformed
+
+    private void bt_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bt_exitActionPerformed
 
     /**
      * @param args the command line arguments

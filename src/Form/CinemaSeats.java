@@ -420,11 +420,20 @@ public class CinemaSeats extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_a2ActionPerformed
 
     private void bt_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_backActionPerformed
-        new TickerOrder(this.human).show();
+
+            new TickerOrder(this.human).show();
     }//GEN-LAST:event_bt_backActionPerformed
 
     private void bt_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_nextActionPerformed
-        new Bill(this.human).show();
+        String validation = this.validation();
+        if(validation.length() > 0) {
+            JOptionPane.showMessageDialog(null, validation, "Validation Error!", 
+            JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
+
+        else {new Bill(this.human).show();
+        }
     }//GEN-LAST:event_bt_nextActionPerformed
 
 
