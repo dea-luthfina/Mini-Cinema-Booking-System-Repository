@@ -212,7 +212,7 @@ public class CinemaSeats extends javax.swing.JFrame {
         jCheckBox8.setText("jCheckBox8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 700));
+        setMaximumSize(new java.awt.Dimension(800, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cb_a1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N

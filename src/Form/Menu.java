@@ -58,6 +58,9 @@ Human human = new Human();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_ali.setBackground(new java.awt.Color(255, 204, 204));

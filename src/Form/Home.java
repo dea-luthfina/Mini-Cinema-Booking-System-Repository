@@ -42,6 +42,8 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
         setPreferredSize(new java.awt.Dimension(800, 700));
         getContentPane().setLayout(null);
 

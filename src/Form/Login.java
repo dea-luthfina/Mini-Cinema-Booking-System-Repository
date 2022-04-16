@@ -70,6 +70,10 @@ public class Login extends javax.swing.JFrame {
         lbl_warn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
+        setPreferredSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -87,6 +91,11 @@ public class Login extends javax.swing.JFrame {
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
+            }
+        });
+        btn_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_loginKeyPressed(evt);
             }
         });
         getContentPane().add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 140, 41));
@@ -109,11 +118,6 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
            String validation = this.validateForm();
-        if(tf_user.getText().equals("Admincinemount")&&pf_pass.getText().equals("Adminoke")){
-            JOptionPane.showMessageDialog(null, "Login Successfully!");
-            new Admin().show();
-        }
-
         if(tf_user.getText().equals("Usercinemount")&&pf_pass.getText().equals("Useroke")){
             JOptionPane.showMessageDialog(null, "Login Successfully!");
             new Menu().show();
@@ -135,6 +139,10 @@ public class Login extends javax.swing.JFrame {
     private void lbl_warnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_warnKeyReleased
 
     }//GEN-LAST:event_lbl_warnKeyReleased
+
+    private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_loginKeyPressed
 
 
     

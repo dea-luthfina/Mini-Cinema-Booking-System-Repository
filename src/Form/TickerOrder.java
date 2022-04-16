@@ -23,8 +23,6 @@ public class TickerOrder extends javax.swing.JFrame {
 
  // inisiasi payment
  Payment payment = new Payment();
- 
-    private Object Interger;
 
     /**
      * Creates new form TickerOrder
@@ -207,7 +205,7 @@ public class TickerOrder extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -402,7 +400,7 @@ public class TickerOrder extends javax.swing.JFrame {
         label_final.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         label_final.setForeground(new java.awt.Color(255, 255, 255));
         label_final.setText("   ");
-        getContentPane().add(label_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 274, 25));
+        getContentPane().add(label_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 540, 274, 25));
 
         btngroup_payment.add(rb_card);
         rb_card.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -423,8 +421,10 @@ public class TickerOrder extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\800x700 end.png")); // NOI18N
         jLabel8.setText("             ");
+        jLabel8.setMaximumSize(new java.awt.Dimension(800, 700));
+        jLabel8.setMinimumSize(new java.awt.Dimension(800, 700));
         jLabel8.setPreferredSize(new java.awt.Dimension(800, 700));
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 800, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -473,7 +473,15 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void tf_amountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_amountKeyReleased
-        this.totalPrice();
+        String validation = this.validateForm();
+        if(validation.length() > 0) {
+            JOptionPane.showMessageDialog(null, validation, "Validation Error!", 
+            JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
+        else {
+           this.totalPrice();
+        }
     }//GEN-LAST:event_tf_amountKeyReleased
 
     private void rb_gopayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_gopayActionPerformed
@@ -515,7 +523,15 @@ public class TickerOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_amountMouseClicked
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-        new CinemaSeats(this.human).show();
+        String validation = this.validateForm();
+        if(validation.length() > 0) {
+            JOptionPane.showMessageDialog(null, validation, "Validation Error!", 
+            JOptionPane.INFORMATION_MESSAGE);
+            return;
+        } 
+        else {
+          new CinemaSeats(this.human).show();
+        }
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed

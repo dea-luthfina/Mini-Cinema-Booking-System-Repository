@@ -48,7 +48,7 @@ public class Bill extends javax.swing.JFrame {
         String total = human.getTotal();
 
         ta_bill.setText(
-            "\tDetail Transaction\t"
+            "Detail Transaction"
             + "\n"
             + "Film\t : " + film + "\n"
             + "Name\t : " + name + "\n"
@@ -58,6 +58,8 @@ public class Bill extends javax.swing.JFrame {
             + "Time\t : " + time + "\n"
             + "Payment Methods : " + payment + "\n"
             + "Total Payment\t: " + total + "\n"
+            + "\n"
+            + "Thank You for your payment."
         );
     }
 
@@ -75,22 +77,28 @@ public class Bill extends javax.swing.JFrame {
       String time = human.getTime();
 
     if("DANA".equals(payment)){
-     label_pay.setText(payment + " is selected. " + " \n  Enter Cinemount company code : 05103 " 
-     + "\n and your registered phone number." + "\n05103" + phone);
+     ta_pay.setText(payment + " is selected. " 
+        + "\nEnter Cinemount company code : 05103" 
+        + "\nand your registered phone number."
+        + "\n05103" + phone);
         }
     if("Go-Pay".equals(payment)){
-     label_pay.setText(payment + " is selected. " + " \n  Enter Cinemount company code : 05103 " 
-     + "\n and your registered phone number." + "\n05103" + phone);
+     ta_pay.setText(payment + " is selected. " 
+        + "\nEnter Cinemount company code : 05103" 
+        + "\nand your registered phone number." 
+        + "\n05103" + phone);
         }
     if("Shopee-Pay".equals(payment)){
-     label_pay.setText(payment + " is selected. " + " \n  Enter Cinemount company code : 05103 " 
-     + "\n and your registered phone number." + "\n05103" + phone);
+     ta_pay.setText(payment + " is selected. " 
+        + "\nEnter Cinemount company code : 05103" 
+        + "\nand your registered phone number." 
+        + "\n05103" + phone);
         }
     if("Credit Card".equals(payment)){
-     label_pay.setText("Please pay at the cashier before " + time);
+     ta_pay.setText("Please pay at the cashier before " + time);
         }
     if("Cash".equals(payment)){
-     label_pay.setText("Please pay at the cashier before " + time);    
+     ta_pay.setText("Please pay at the cashier before " + time);    
         }
     }
     
@@ -113,11 +121,15 @@ public class Bill extends javax.swing.JFrame {
         SEATS = new javax.swing.JLabel();
         bt_exit = new javax.swing.JButton();
         bt_pay = new javax.swing.JButton();
-        label_pay = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_pay = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setMinimumSize(new java.awt.Dimension(800, 700));
         setPreferredSize(new java.awt.Dimension(800, 700));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("sansserif", 3, 48)); // NOI18N
@@ -125,14 +137,14 @@ public class Bill extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 369, 70));
 
         ta_bill.setColumns(20);
-        ta_bill.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        ta_bill.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         ta_bill.setRows(5);
         jScrollPane1.setViewportView(ta_bill);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, 320));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 430, 300));
 
         ta_seats.setColumns(20);
-        ta_seats.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ta_seats.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         ta_seats.setRows(5);
         jScrollPane3.setViewportView(ta_seats);
 
@@ -142,7 +154,7 @@ public class Bill extends javax.swing.JFrame {
         jLabel2.setText("STUDIO");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, 33));
 
-        tf_studio.setFont(new java.awt.Font("sansserif", 1, 48)); // NOI18N
+        tf_studio.setFont(new java.awt.Font("sansserif", 1, 72)); // NOI18N
         tf_studio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(tf_studio, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 179, 132));
 
@@ -163,14 +175,16 @@ public class Bill extends javax.swing.JFrame {
         });
         getContentPane().add(bt_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, 117, 43));
 
-        label_pay.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        label_pay.setForeground(new java.awt.Color(255, 255, 255));
-        label_pay.setText("          ");
-        getContentPane().add(label_pay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 430, 70));
+        ta_pay.setColumns(20);
+        ta_pay.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ta_pay.setRows(5);
+        jScrollPane2.setViewportView(ta_pay);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 430, 100));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prio\\Downloads\\bill.png")); // NOI18N
         jLabel3.setText("        ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 680));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 810, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,9 +238,10 @@ public class Bill extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel label_pay;
     private javax.swing.JTextArea ta_bill;
+    private javax.swing.JTextArea ta_pay;
     private javax.swing.JTextArea ta_seats;
     private javax.swing.JTextField tf_studio;
     // End of variables declaration//GEN-END:variables
