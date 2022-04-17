@@ -96,7 +96,7 @@ public class CinemaSeats extends javax.swing.JFrame {
     tf_seats.setText("");
 
     // label result reset
-    label_result.setText("Your data hase been reset.");
+    label_result.setText("Your data have been reset.");
 }
 
     // save form
@@ -420,7 +420,7 @@ public class CinemaSeats extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_a2ActionPerformed
 
     private void bt_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_backActionPerformed
-
+            setVisible(false); 
             new TickerOrder(this.human).show();
     }//GEN-LAST:event_bt_backActionPerformed
 
@@ -431,8 +431,10 @@ public class CinemaSeats extends javax.swing.JFrame {
             JOptionPane.INFORMATION_MESSAGE);
             return;
         } 
-
-        else {new Bill(this.human).show();
+        
+        else {
+        setVisible(false);
+        new Bill(this.human).show();
         }
     }//GEN-LAST:event_bt_nextActionPerformed
 

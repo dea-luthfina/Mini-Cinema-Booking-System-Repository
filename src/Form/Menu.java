@@ -74,11 +74,6 @@ Human human = new Human();
                 btn_aliMouseClicked(evt);
             }
         });
-        btn_ali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_aliActionPerformed(evt);
-            }
-        });
         getContentPane().add(btn_ali, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 180, 40));
 
         btn_quiteplace.setBackground(new java.awt.Color(255, 204, 204));
@@ -171,6 +166,8 @@ Human human = new Human();
 
         // lanjurt ke halaman berikutnya
         new TickerOrder(this.human).show();
+        setVisible(false);
+
     }//GEN-LAST:event_btn_aliMouseClicked
 
     private void btn_quiteplaceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_quiteplaceMouseClicked
@@ -185,6 +182,8 @@ Human human = new Human();
 
         // lanjut ke halaman berikutnya
         new TickerOrder(this.human).show();
+        setVisible(false);
+
     }//GEN-LAST:event_btn_quiteplaceMouseClicked
 
     private void btn_jujutsuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_jujutsuMouseClicked
@@ -199,6 +198,8 @@ Human human = new Human();
 
         // lanjut ke halaman berikutnya
         new TickerOrder(this.human).show();
+        setVisible(false);
+
     }//GEN-LAST:event_btn_jujutsuMouseClicked
 
     private void btn_lucaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lucaMouseClicked
@@ -213,6 +214,8 @@ Human human = new Human();
 
         // lanjut ke halaman berikutnya
         new TickerOrder(this.human).show();
+        setVisible(false);
+
     }//GEN-LAST:event_btn_lucaMouseClicked
 
     private void btn_spidermanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_spidermanMouseClicked
@@ -227,11 +230,9 @@ Human human = new Human();
 
         // lanjut ke halaman berikutnya
         new TickerOrder(this.human).show();
-    }//GEN-LAST:event_btn_spidermanMouseClicked
+        setVisible(false);
 
-    private void btn_aliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_aliActionPerformed
+    }//GEN-LAST:event_btn_spidermanMouseClicked
 
     /**
      * @param args the command line arguments

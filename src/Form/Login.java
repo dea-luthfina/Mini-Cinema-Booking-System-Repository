@@ -67,7 +67,6 @@ public class Login extends javax.swing.JFrame {
         pf_pass = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        lbl_warn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 700));
@@ -77,10 +76,12 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
         getContentPane().add(tf_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 310, 32));
@@ -104,15 +105,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("         ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 690));
 
-        lbl_warn.setBackground(new java.awt.Color(255, 51, 51));
-        lbl_warn.setForeground(new java.awt.Color(204, 0, 0));
-        lbl_warn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                lbl_warnKeyReleased(evt);
-            }
-        });
-        getContentPane().add(lbl_warn, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 152, 340, 20));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,6 +112,7 @@ public class Login extends javax.swing.JFrame {
            String validation = this.validateForm();
         if(tf_user.getText().equals("Usercinemount")&&pf_pass.getText().equals("Useroke")){
             JOptionPane.showMessageDialog(null, "Login Successfully!");
+            setVisible(false);
             new Menu().show();
         }
 
@@ -136,12 +129,9 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    private void lbl_warnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_warnKeyReleased
-
-    }//GEN-LAST:event_lbl_warnKeyReleased
-
     private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
         // TODO add your handling code here:
+        setVisible(false);
     }//GEN-LAST:event_btn_loginKeyPressed
 
 
@@ -187,7 +177,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lbl_warn;
     private javax.swing.JPasswordField pf_pass;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables

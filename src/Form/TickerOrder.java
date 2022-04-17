@@ -113,6 +113,10 @@ public class TickerOrder extends javax.swing.JFrame {
         if(name.length() < 1) {
             flag.add("Name can not be blank!");
         }
+
+        else if(!name.matches("[a-zA-Z]+")){
+            flag.add("Name contains character only!");
+        }
         
         // validasi nomor telepon
         String phone = tf_phone.getText();
@@ -551,11 +555,14 @@ public class TickerOrder extends javax.swing.JFrame {
             return;
         } 
         else {
+          setVisible(false);
           new CinemaSeats(this.human).show();
         }
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
+        
+        setVisible(false);
         new Menu().show();
     }//GEN-LAST:event_btn_backActionPerformed
 
