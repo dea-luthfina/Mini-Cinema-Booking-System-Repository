@@ -1,19 +1,20 @@
+package Core;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Core;
 
 /**
  *
- * @author Prio
+ * @author USER
  */
-public class Cash extends Payment{
+public class DebitCard extends Payment{
     /**
      *
      */
     @Override
     public String payment() {
-    return "Cash. Please pay your order in the cashier.";
+    return "Debit card. Please prepare your debit card to complete the transaction.";
   }
 }
