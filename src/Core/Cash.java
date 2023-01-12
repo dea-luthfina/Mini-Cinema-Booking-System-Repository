@@ -14,6 +14,6 @@ public class Cash extends Payment{
      */
     @Override
     public String payment() {
-    return "Cash. Please pay in the cashier.";
+    return "Cash. Please pay your order in the cashier.";
   }
 }

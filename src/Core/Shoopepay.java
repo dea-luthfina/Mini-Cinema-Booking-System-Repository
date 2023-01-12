@@ -14,6 +14,6 @@ public class Shoopepay extends Payment{
      */
     @Override
     public String payment() {
-    return "ShopeePay. Please prepare your application.";
+    return "ShopeePay. Please prepare your application to complete the transaction.";
   }
 }
