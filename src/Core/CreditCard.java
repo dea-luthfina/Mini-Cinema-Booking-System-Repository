@@ -14,6 +14,6 @@ public class CreditCard extends Payment{
      */
     @Override
     public String payment() {
-    return "Credit card. Please prepare your credit card.";
+    return "Credit card. Please prepare your credit card to complete the transaction.";
   }
 }

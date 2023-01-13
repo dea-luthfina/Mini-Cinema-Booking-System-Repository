@@ -6,14 +6,11 @@ package Core;
 
 /**
  *
- * @author Prio
+ * @author USER
  */
-public class Cash extends Payment{
-    /**
-     *
-     */
+public class LinkAja extends Payment{
     @Override
     public String payment() {
-    return "Cash. Please pay your order in the cashier.";
+    return "LinkAja. Please prepare your application to complete the transaction.";
   }
 }
